@@ -1,0 +1,6 @@
+/.idea
+/.vscode
+/.vagrant
+Gemfile.lock
+.DS_Store
+Thumbs.db
