@@ -1,8 +1,8 @@
 class PhpAT56 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-5.6.39.tar.xz/from/this/mirror"
-  sha256 "8147576001a832ff3d03cb2980caa2d6b584a10624f87ac459fcd3948c6e4a10"
+  url "https://php.net/get/php-5.6.40.tar.xz/from/this/mirror"
+  sha256 "1369a51eee3995d7fbd1c5342e5cc917760e276d561595b6052b21ace2656d1c"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles"
