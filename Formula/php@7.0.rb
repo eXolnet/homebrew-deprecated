@@ -37,6 +37,7 @@ class PhpAT70 < Formula
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
+  depends_on "libxml2"
   depends_on "webp"
   unless OS.mac?
     depends_on "xz" => :build
