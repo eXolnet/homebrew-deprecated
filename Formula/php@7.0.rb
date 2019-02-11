@@ -153,6 +153,7 @@ class PhpAT70 < Formula
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
+      --with-libxml-dir#{headers_path}
       --with-libzip
       --with-mcrypt=#{Formula["mcrypt"].opt_prefix}
       --with-mysql-sock=/tmp/mysql.sock
