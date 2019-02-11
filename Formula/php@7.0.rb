@@ -37,12 +37,12 @@ class PhpAT70 < Formula
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
-  depends_on "libxml2"
   depends_on "webp"
   unless OS.mac?
     depends_on "xz" => :build
     depends_on "bzip2"
     depends_on "libedit"
+    depends_on "libxml2"
     depends_on "libxslt"
     depends_on "zlib"
   end
@@ -123,7 +123,6 @@ class PhpAT70 < Formula
       --enable-bcmath
       --enable-calendar
       --enable-dba
-      --enable-dtrace
       --enable-exif
       --enable-ftp
       --enable-fpm
@@ -150,12 +149,16 @@ class PhpAT70 < Formula
       --with-gd
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-iconv#{headers_path}
       --with-icu-dir=#{Formula["icu4c"].opt_prefix}
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
+      --with-ldap=#{Formula["openldap"].opt_prefix}
+      --with-ldap-sasl#{headers_path}
       --with-libxml-dir#{headers_path}
       --with-libzip
+      --with-mhash#{headers_path}
       --with-mcrypt=#{Formula["mcrypt"].opt_prefix}
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
@@ -180,37 +183,22 @@ class PhpAT70 < Formula
       args << "--enable-dtrace"
       args << "--with-zlib#{headers_path}"
       args << "--with-bz2#{headers_path}"
-      args << "--with-ldap-sasl#{headers_path}"
+      args << "--with-ndbm#{headers_path}"
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
-      args << "--with-mhash#{headers_path}"
-      args << "--with-ndbm#{headers_path}"
       args << "--with-xsl#{headers_path}"
+      args << "--with-curl=#{Formula["curl-openssl"].opt_prefix}"
     else
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
       args << "--with-bz2=#{Formula["bzip2"].opt_prefix}"
       args << "--with-libedit=#{Formula["libedit"].opt_prefix}"
+      args << "--with-libxml-dir=#{Formula["libxml2"].opt_prefix}"
       args << "--with-xsl=#{Formula["libxslt"].opt_prefix}"
       args << "--without-ldap-sasl"
       args << "--without-ndbm"
       args << "--without-gdbm"
-    end
-
-    if !OS.mac? || MacOS.version < :lion
       args << "--with-curl=#{Formula["curl"].opt_prefix}"
-    else
-      args << "--with-curl#{headers_path}"
-    end
-
-    if !OS.mac? ||MacOS.sdk_path_if_needed
-      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
-    else
-      args << "--with-ldap"
-    end
-
-    if OS.mac? && MacOS.sdk_path_if_needed
-      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
     end
 
     system "./configure", *args
