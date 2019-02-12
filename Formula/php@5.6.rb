@@ -6,7 +6,8 @@ class PhpAT56 < Formula
 
   bottle do
     root_url "https://dl.bintray.com/exolnet/bottles-deprecated"
-    sha256 "bb127b12e6407b626f375ed4544fd31ef793dd57c5c1480b153c6ae9bda918e7" => :mojave
+    rebuild 1
+    sha256 "fc8320980f2d3ea897e795d6b4f3e0325c0ff8d70b2326d39746c74b72cb122d" => :mojave
   end
 
   keg_only :versioned_formula
