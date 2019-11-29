@@ -5,9 +5,8 @@ class PhpAT71 < Formula
   sha256 "bd7c0a9bd5433289ee01fd440af3715309faf583f75832b64fe169c100d52968"
 
   bottle do
-    sha256 "8d5fe6ef069cd38913facb42b72b5597aaeb1d7eb05377ba53259e2d5dd1ba2e" => :catalina
-    sha256 "0d349a06ffb681665c2c07efdc33cf9fe5494583024745208cce708ae6b121de" => :mojave
-    sha256 "2b3d9af13b1a65c06192ad3a2a8a2ccd06ed4dd2497fe8707c15a6fa812fea5f" => :high_sierra
+    root_url "https://dl.bintray.com/exolnet/bottles-deprecated"
+    sha256 "3d8b43d6a09d60b95dc16b31e7fa8d3381224935b2b31eff604d5f9266f0fff4" => :mojave
   end
 
   keg_only :versioned_formula
