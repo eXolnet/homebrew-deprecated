@@ -1,7 +1,7 @@
 # This formula tracks 1.0.2 branch of OpenSSL, not the 1.1.0 branch. Due to
 # significant breaking API changes in 1.1.0 other formulae will be migrated
 # across slowly, so core will ship `openssl` & `openssl@1.1` for foreseeable.
-class Openssl < Formula
+class OpensslAT10 < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
   url "https://www.openssl.org/source/openssl-1.0.2t.tar.gz"
@@ -46,7 +46,7 @@ class Openssl < Formula
   end
 
   def openssldir
-    etc/"openssl"
+    etc/"openssl@1.0"
   end
 
   def post_install
@@ -85,7 +85,7 @@ class Openssl < Formula
 
   test do
     # Make sure the necessary .cnf file exists, otherwise OpenSSL gets moody.
-    assert_predicate HOMEBREW_PREFIX/"etc/openssl/openssl.cnf", :exist?,
+    assert_predicate HOMEBREW_PREFIX/"etc/openssl@1.0/openssl.cnf", :exist?,
             "OpenSSL requires the .cnf file for some functionality"
 
     # Check OpenSSL itself functions as expected.
