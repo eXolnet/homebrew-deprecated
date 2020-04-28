@@ -38,9 +38,19 @@ class PhpAT56 < Formula
   depends_on "tidy-html5"
   depends_on "unixodbc"
 
+  option "with-openssl-1.1-patch", "Apply patch enabling compilation with opensssl@1.1"
+
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
   patch :DATA
+
+  # Applies patch enabling compilation of PHP@5.6 with homebrew openssl@1.1
+  if build.with?("openssl-1.1-patch") then
+    patch :p1 do
+      url "https://raw.githubusercontent.com/opencomputeproject/Rack-Manager/master/Contrib-Inspur/openbmc/meta-openembedded/meta-oe/recipes-devtools/php/php/0001-PHP-5.6-LibSSL-1.1-compatibility.patch"
+      sha256 "c9715b544ae249c0e76136dfadd9d282237233459694b9e75d0e3e094ab0c993"
+    end
+  end
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
