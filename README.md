@@ -35,3 +35,8 @@ If you discover any security related issues, please email security@exolnet.com i
 
 This code is licensed under the [MIT license](http://choosealicense.com/licenses/mit/).
 Please see the [license file](LICENSE) for more information.
+
+## Alternatives
+
+You can find a similar, and more actively maintained project here:
+- https://github.com/shivammathur/homebrew-php
