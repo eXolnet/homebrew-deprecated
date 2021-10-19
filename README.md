@@ -40,7 +40,7 @@ If you discover any security related issues, please email security@exolnet.com i
 
 ## Credits
 
-- [Patrick Gagnon-Renaud](https://github.com/pgrenaud)
+- [Pat Gagnon-Renaud](https://github.com/pgrenaud)
 - [All Contributors](../../contributors)
 
 ## License
